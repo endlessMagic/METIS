@@ -44,6 +44,8 @@ install(FILES include/metis.h TYPE INCLUDE)
 add_library(metis)
 target_include_directories(metis PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/libmetis>
+# For build time, use the current source or build directory
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>
 PRIVATE ${PROJECT_SOURCE_DIR}/include ${gklib_SOURCE_DIR}
 )
